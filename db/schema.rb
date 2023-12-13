@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_13_033343) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_13_034945) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,19 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_13_033343) do
     t.index ["organisation_id"], name: "index_members_on_organisation_id"
   end
 
+  create_table "open_ai_files", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "member_id", null: false
+    t.string "file_id", null: false
+    t.bigint "bytes", null: false
+    t.datetime "remotely_created_at", precision: nil, null: false
+    t.string "filename", null: false
+    t.string "object", null: false
+    t.string "purpose", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_open_ai_files_on_member_id"
+  end
+
   create_table "organisations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "org_name", null: false
     t.datetime "created_at", null: false
@@ -29,4 +42,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_13_033343) do
   end
 
   add_foreign_key "members", "organisations"
+  add_foreign_key "open_ai_files", "members"
 end
