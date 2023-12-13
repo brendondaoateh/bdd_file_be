@@ -1,35 +1,37 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class MembersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @member = members(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get members_url, as: :json
     assert_response :success
   end
 
-  test "should create member" do
-    assert_difference("Member.count") do
+  test 'should create member' do
+    assert_difference('Member.count') do
       post members_url, params: { member: { member_name: @member.member_name } }, as: :json
     end
 
     assert_response :created
   end
 
-  test "should show member" do
+  test 'should show member' do
     get member_url(@member), as: :json
     assert_response :success
   end
 
-  test "should update member" do
+  test 'should update member' do
     patch member_url(@member), params: { member: { member_name: @member.member_name } }, as: :json
     assert_response :success
   end
 
-  test "should destroy member" do
-    assert_difference("Member.count", -1) do
+  test 'should destroy member' do
+    assert_difference('Member.count', -1) do
       delete member_url(@member), as: :json
     end
 

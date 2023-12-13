@@ -4,3 +4,5 @@ inherit_from:
 AllCops:
   Exclude:
     - 'bin/**/*'
+    - 'vendor/**/*'
+    - 'log/**/*'

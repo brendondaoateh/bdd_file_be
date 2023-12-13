@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class MembersController < ApplicationController
-  before_action :set_member, only: %i[ show update destroy ]
+  before_action :set_member, only: %i[show update destroy]
 
   # GET /members
   def index
@@ -39,13 +41,14 @@ class MembersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_member
-      @member = Member.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def member_params
-      params.require(:member).permit(:member_name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_member
+    @member = Member.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def member_params
+    params.require(:member).permit(:member_name)
+  end
 end

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class OrganisationsController < ApplicationController
-  before_action :set_organisation, only: %i[ show update destroy ]
+  before_action :set_organisation, only: %i[show update destroy]
 
   # GET /organisations
   def index
@@ -39,13 +41,14 @@ class OrganisationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_organisation
-      @organisation = Organisation.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def organisation_params
-      params.require(:organisation).permit(:org_name, :id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_organisation
+    @organisation = Organisation.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def organisation_params
+    params.require(:organisation).permit(:org_name, :id)
+  end
 end

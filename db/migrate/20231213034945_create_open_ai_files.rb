@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateOpenAiFiles < ActiveRecord::Migration[7.1]
   def change
     create_table :open_ai_files, id: :uuid do |t|

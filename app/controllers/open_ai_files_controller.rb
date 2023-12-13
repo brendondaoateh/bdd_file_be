@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class OpenAiFilesController < ApplicationController
-  before_action :set_open_ai_file, only: %i[ show update destroy ]
+  before_action :set_open_ai_file, only: %i[show update destroy]
 
   # GET /open_ai_files
   def index
@@ -39,13 +41,14 @@ class OpenAiFilesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_open_ai_file
-      @open_ai_file = OpenAiFile.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def open_ai_file_params
-      params.fetch(:open_ai_file, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_open_ai_file
+    @open_ai_file = OpenAiFile.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def open_ai_file_params
+    params.fetch(:open_ai_file, {})
+  end
 end
