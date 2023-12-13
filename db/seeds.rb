@@ -8,3 +8,12 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+org1 = Organisation.create(org_name: 'EH1')
+org2 = Organisation.create(org_name: 'EH2')
+
+Member.create(organisation: org1, member_name: 'Duong Hoang')
+Member.create(organisation: org1, member_name: 'Brendon Dao')
+Member.create(organisation: org2, member_name: 'Phien Pham')
+Member.create(organisation: org2, member_name: 'An Chu')
+Member.create(organisation: org2, member_name: 'Bao Dinh')
