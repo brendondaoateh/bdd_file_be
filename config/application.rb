@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'boot'
+require 'dotenv'
+Dotenv.load
 
 require 'rails/all'
+require_relative 'boot'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

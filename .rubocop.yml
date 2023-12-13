@@ -6,3 +6,14 @@ AllCops:
     - 'bin/**/*'
     - 'vendor/**/*'
     - 'log/**/*'
+
+Metrics/MethodLength:
+  Description: 'Avoid methods longer than 50 lines of code.'
+  StyleGuide: '#short-methods'
+  Enabled: true
+  CountComments: false  # count full line comments?
+  Max: 50
+  IgnoredMethods: []
+  
+Metrics/AbcSize:
+  Enabled: false
