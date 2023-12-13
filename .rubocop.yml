@@ -1,0 +1,6 @@
+inherit_from:
+  - https://raw.githubusercontent.com/Thinkei/Thinkei/master/.rubocop_default_v1.yml
+
+AllCops:
+  Exclude:
+    - 'bin/**/*'
