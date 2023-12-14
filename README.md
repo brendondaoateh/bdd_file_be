@@ -28,4 +28,6 @@ curl --location 'localhost:3000/files' \
 ```
 
 ## Run test
-WIP
+
+Start tests:
+- bundle exec rspec
