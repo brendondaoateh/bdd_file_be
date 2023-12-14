@@ -21,6 +21,8 @@ default: &default
 
 development:
   <<: *default
+  host: localhost
+  port: 5432
   database: bdd_file_be_development
   username: postgres
   password: password
@@ -57,6 +59,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  host: localhost
+  port: 5432
   database: bdd_file_be_test
   username: postgres
   password: password
