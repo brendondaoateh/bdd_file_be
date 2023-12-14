@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://api.openai.com/v1/files/file-Uoz8yzLCgamwaSLTklAT1PPA
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Authorization:
+      - Bearer <OPENAI_API_KEY>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 11 Dec 2023 05:37:44 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-9qbv6uumhc6fa5oofgv09oc1
+      X-Request-Id:
+      - 07bf68ecf7ce5dd841d0244d36f07070
+      Openai-Processing-Ms:
+      - '1263'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=kj3ZZu44sUEQFSUEa26hZsxi0HLmh_3MUVXbZ4V2rDQ-1702273064-0-AefH1DgpWmaWJiClnoT1+7I2V6lZLQgd2fROxAnhCZG1H8eTPyVRIouvxxnEynEPFTTpjhdhIq7Vq3oGlPsSA+4=;
+        path=/; expires=Mon, 11-Dec-23 06:07:44 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=A16XFKNfQipG2INsMOGHI_rc7U.DJQrI9GzRDCSaJ.s-1702273064054-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 833b6090f8ac2118-HKG
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        ewogICJvYmplY3QiOiAiZmlsZSIsCiAgImlkIjogImZpbGUtVW96OHl6TENn
+        YW13YVNMVGtsQVQxUFBBIiwKICAiZGVsZXRlZCI6IHRydWUKfQo=
+  recorded_at: Mon, 11 Dec 2023 05:37:43 GMT
+recorded_with: VCR 6.2.0

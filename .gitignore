@@ -38,3 +38,6 @@
 
 # Ignore debug
 .byebug*
+
+# Ignore test coverage
+/coverage

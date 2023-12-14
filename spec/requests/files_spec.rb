@@ -37,7 +37,36 @@ RSpec.describe 'Files', type: :request do
 
   describe 'POST /files' do
     it 'creates a file' do
+      VCR.use_cassette('upload_file_valid') do
+        post '/files', params: {
+          member_id: member.id,
+          purpose: 'assistants',
+          file: 'spec/fixtures/sample.pdf'
+        }
+        expect(response).to have_http_status(:success)
+        create_response_body = JSON.parse(response.body)
 
+        get "/files/#{create_response_body['id']}"
+        show_response_body = JSON.parse(response.body)
+
+        expect(create_response_body.to_json).to eq(show_response_body.to_json)
+      end
+    end
+  end
+
+  describe 'DELETE /files/1' do
+    it 'deletes a file' do
+      VCR.use_cassette('delete_file_valid') do
+        open_ai_file = create(:open_ai_file, member: member)
+
+        delete "/files/#{open_ai_file.id}"
+        expect(response).to have_http_status(:success)
+
+        get '/files'
+        index_response_body = JSON.parse(response.body)
+        expect(index_response_body).to be_an(Array)
+        expect(index_response_body.length).to eq(0)
+      end
     end
   end
 end
