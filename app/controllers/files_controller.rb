@@ -7,23 +7,32 @@ class FilesController < ApplicationController
 
   # GET /files
   def index
-    @open_ai_files = OpenAiFile.all
-    render json: @open_ai_files
+    service = FileServices::List.new
+    files = service.call
+    render json: files
   end
 
   # GET /files/1
   def show
-    render json: @open_ai_file
+    file_id = params[:id]
+    service = FileServices::Get.new
+    service.call(file_id)
+    render json: files
   end
 
   # POST /files
   def create
+    params.require(%i[member_id purpose file])
+
     member_id = params[:member_id]
-    render json: { error: 'Missing member_id parameter' }, status: :unprocessable_entity unless member_id.present?
-    purpose = params[:purpose]
-    render json: { error: 'Missing purpose parameter' }, status: :unprocessable_entity unless purpose.present?
     file_path = params[:file]
-    render json: { error: 'Missing file parameter' }, status: :unprocessable_entity unless file_path.present?
+
+    allowed_purposes = %w[fine-tune assistants]
+    purpose = params[:purpose]
+    unless allowed_purposes.include?(purpose)
+      render json: { error: "Invalid purpose, expect: #{allowed_purposes.join(', ')}" }, status: :unprocessable_entity
+      return
+    end
 
     file_response = BddOpenai::FileClient.new(ENV['OPENAI_API_KEY']).upload_file(purpose, file_path)
     return handle_error_response(file_response) if file_response.is_a?(BddOpenai::ErrorResponse)

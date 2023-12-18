@@ -3,6 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Files', type: :request do
+  let(:base_url) { '/api/v1/files' }
   let(:member) { create(:member) }
 
   describe 'GET /files' do
@@ -11,7 +12,7 @@ RSpec.describe 'Files', type: :request do
       open_ai_file2 = create(:open_ai_file, member: member)
       expected_response = [open_ai_file1, open_ai_file2]
 
-      get '/files'
+      get base_url
       expect(response).to have_http_status(:success)
 
       response_body = JSON.parse(response.body)
@@ -27,7 +28,7 @@ RSpec.describe 'Files', type: :request do
     it 'returns a file' do
       open_ai_file = create(:open_ai_file, member: member)
 
-      get "/files/#{open_ai_file.id}"
+      get "#{base_url}/#{open_ai_file.id}"
       expect(response).to have_http_status(:success)
 
       response_body = JSON.parse(response.body)
@@ -38,7 +39,7 @@ RSpec.describe 'Files', type: :request do
   describe 'POST /files' do
     it 'creates a file' do
       VCR.use_cassette('upload_file_valid') do
-        post '/files', params: {
+        post base_url.to_s, params: {
           member_id: member.id,
           purpose: 'assistants',
           file: 'spec/fixtures/sample.pdf'
@@ -46,7 +47,7 @@ RSpec.describe 'Files', type: :request do
         expect(response).to have_http_status(:success)
         create_response_body = JSON.parse(response.body)
 
-        get "/files/#{create_response_body['id']}"
+        get "#{base_url}/#{create_response_body['id']}"
         show_response_body = JSON.parse(response.body)
 
         expect(create_response_body.to_json).to eq(show_response_body.to_json)
@@ -59,10 +60,10 @@ RSpec.describe 'Files', type: :request do
       VCR.use_cassette('delete_file_valid') do
         open_ai_file = create(:open_ai_file, member: member)
 
-        delete "/files/#{open_ai_file.id}"
+        delete "#{base_url}/#{open_ai_file.id}"
         expect(response).to have_http_status(:success)
 
-        get '/files'
+        get base_url.to_s
         index_response_body = JSON.parse(response.body)
         expect(index_response_body).to be_an(Array)
         expect(index_response_body.length).to eq(0)
