@@ -59,3 +59,9 @@ group :development do
 end
 
 gem 'grape', '~> 2.0'
+
+gem 'sidekiq', '~> 7.2'
+
+gem 'rubocop', '~> 1.59'
+
+gem 'bundler', '~> 2.4'
