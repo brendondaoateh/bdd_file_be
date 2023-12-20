@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers:
+      Authorization:
+      - Bearer <OPENAI_API_KEY>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 20 Dec 2023 02:01:39 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-9qbv6uumhc6fa5oofgv09oc1
+      X-Request-Id:
+      - 5d4dfc5c0728eeb9d5b29ee141f73245
+      Openai-Processing-Ms:
+      - '112'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=duB_Z8dsdkxIFBAaJ2EPTMrwy0rbf8amaruRMO0h35E-1703037699-1-AbqzSUXp2EfYtuQ7TKoOQu9ooTBMDn9rQetW3h4FIGSdvugWWpWT6t6DUTGT7D+GbpdhTfK4rJfmeCYCwwOnK3I=;
+        path=/; expires=Wed, 20-Dec-23 02:31:39 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=DEGEvzllaUU7nQHtTpV6BCwmnHGc5xO3PiUSVtAK4mk-1703037699467-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 83844c73ba20106f-HKG
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        ewogICJvYmplY3QiOiAibGlzdCIsCiAgImhhc19tb3JlIjogZmFsc2UsCiAg
+        ImRhdGEiOiBbCiAgICB7CiAgICAgICJvYmplY3QiOiAiZmlsZSIsCiAgICAg
+        ICJpZCI6ICJmaWxlLURLUUQ0aVp2WWZhcVE2UGZ4OFlxN0NaaCIsCiAgICAg
+        ICJwdXJwb3NlIjogImFzc2lzdGFudHMiLAogICAgICAiZmlsZW5hbWUiOiAi
+        c2FtcGxlLnBkZiIsCiAgICAgICJieXRlcyI6IDI4MzAsCiAgICAgICJjcmVh
+        dGVkX2F0IjogMTcwMjI2OTE5NiwKICAgICAgInN0YXR1cyI6ICJwcm9jZXNz
+        ZWQiLAogICAgICAic3RhdHVzX2RldGFpbHMiOiBudWxsCiAgICB9LAogICAg
+        ewogICAgICAib2JqZWN0IjogImZpbGUiLAogICAgICAiaWQiOiAiZmlsZS0w
+        eG5PWk5Rd05xV3pQSEZsM3llT0lIZ0siLAogICAgICAicHVycG9zZSI6ICJh
+        c3Npc3RhbnRzIiwKICAgICAgImZpbGVuYW1lIjogInNhbXBsZS5wZGYiLAog
+        ICAgICAiYnl0ZXMiOiAzMDI4LAogICAgICAiY3JlYXRlZF9hdCI6IDE3MDIy
+        NDQyOTgsCiAgICAgICJzdGF0dXMiOiAicHJvY2Vzc2VkIiwKICAgICAgInN0
+        YXR1c19kZXRhaWxzIjogbnVsbAogICAgfQogIF0KfQo=
+  recorded_at: Wed, 20 Dec 2023 02:01:39 GMT
+recorded_with: VCR 6.2.0

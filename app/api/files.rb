@@ -11,6 +11,8 @@ module Files
     resource :files do
       desc 'return list of files'
       get do
+        SyncFilesJob.perform_async
+
         service = ::FileServices::List.new
         service.call
       end
